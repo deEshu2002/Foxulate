@@ -31,11 +31,13 @@ const Related = () => {
 
   return (
     <>
-      <div className="shadow-md pb-4 pt-2 px-4 rounded-b-lg border w-11/12 h-[70vh] mb-10 overflow-y-scroll">
-        {Related.map((related) => {
-          return <p key={related}>{related}</p>;
-        })}
-      </div>
+      {Related.map((related) => {
+        return (
+          <p key={related} className="py-1">
+            {related}
+          </p>
+        );
+      })}
     </>
   );
 };

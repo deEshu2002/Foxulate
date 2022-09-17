@@ -7,7 +7,7 @@ interface Props {
 
 const Flag = (prop: Props) => {
   return (
-    <div className="ml-4 pt-1">
+    <div className="ml-4 pt-1 -z-10">
       <Image alt={""} src={india} width={30} height={30} />
     </div>
   );

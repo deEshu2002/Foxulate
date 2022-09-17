@@ -40,7 +40,7 @@ const Recents = () => {
 
   return (
     <>
-      <div className="shadow-md pb-4 pt-2 px-4 rounded-b-lg border w-11/12 max-h-[50rem] mb-10 overflow-y-scroll">
+      <div className="">
         {recents.map((word) => {
           return (
             <p key={word} className="py-1">

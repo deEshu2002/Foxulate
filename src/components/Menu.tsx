@@ -1,23 +1,28 @@
+import { useDispatch } from "react-redux";
 import Link from "next/link";
+import { toggleMenu } from "./Redux/ShowMenu";
 
 const Menu = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="flex flex-col h-full justify-between">
         <div className="flex flex-col ml-36 mt-36 gap-7 font-extralight ">
-           <div className="text-slate-200 text-2xl w-fit leading-tight ">
-             <Link href={"/profile"}>
-            <p className="cursor-pointer link link-underline link-underline-black pb-1">
-              Profile
-            </p>
-</Link>
-          </div><div className="text-slate-200/60 text-2xl w-fit leading-tight ">
-            <p className=" cursor-default">
-              Playground
-            </p>
+          <div className="text-slate-200 text-2xl w-fit leading-tight ">
+            <Link href={"/profile"}>
+              <p
+                className="cursor-pointer link link-underline link-underline-black pb-1"
+                onClick={() => dispatch(toggleMenu())}
+              >
+                Profile
+              </p>
+            </Link>
+          </div>
+          <div className="text-slate-200/60 text-2xl w-fit leading-tight ">
+            <p className=" cursor-default">Playground</p>
           </div>
 
-         <div className="text-slate-200 text-2xl w-fit leading-tight ">
+          <div className="text-slate-200 text-2xl w-fit leading-tight ">
             <p className="cursor-pointer link link-underline link-underline-black pb-1">
               Mode
             </p>

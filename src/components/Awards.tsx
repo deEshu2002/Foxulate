@@ -13,19 +13,17 @@ const Awards: React.FunctionComponent = () => {
   ];
 
   return (
-    <div className=" w-full border shadow-md">
-      <table className="text-left w-full ">
-        <tbody className="max-h-96 bg-white flex flex-col items-center justify-between overflow-y-scroll w-full">
-          {Awards.map((award, idx) => {
-            return (
-              <tr key={idx} className={"w-full mb-1"}>
-                <td className="pl-4 py-1">{award}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <>
+      <div className="">
+        {Awards.map((award) => {
+          return (
+            <p key={award} className="py-1">
+              {award}
+            </p>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

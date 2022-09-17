@@ -2,9 +2,10 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Awards from "../components/Awards";
 import Flag from "../components/Flag";
-import HeaderRest from "../components/HeaderRest";
+import Header from "../components/Header";
+import ListTemplate from "../components/ListTemplate";
 import Recents from "../components/Recents";
-import Submissions from "../components/Submission";
+import Streak from "../components/Streak";
 
 const Profile: NextPage = () => {
   return (
@@ -17,33 +18,18 @@ const Profile: NextPage = () => {
 
       <main>
         <div className="">
-          <div className=" bg-white fixed ">
-            {/** Menu Button */}
-            <button className=" z-10 mt-2 ml-10 outline-none relative focus:outline-none hover:scale-105 duration-200">
-              <svg
-                width="26"
-                height="21"
-                viewBox="0 0 31 26"
-                fill="#191919"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M31.0001 11.3333H6.69006L15.5117 2.51166L13.1551 0.154999L0.310059 13L13.1551 25.845L15.5117 23.4883L6.69006 14.6667H31.0001V11.3333Z" />
-              </svg>
-            </button>
-          </div>
-
-          <HeaderRest />
+          <Header />
 
           <div className="flex flex-row mx-20">
-            <div className="flex justify-center w-2/5 ">
-              <div>
-                <div className=" rounded-full  bg-black  w-[19rem] h-[19rem] my-8"></div>
-
-                <div className="">
-                  <div className="shadow-md bg-white mb-1 rounded-t-xl w-full border">
-                    <p className="text-xl py-1 ml-2">Awards</p>
-                  </div>
-                  <Awards />
+            <div className="w-2/5">
+              <div className="grid justify-items-center">
+                <div className=" rounded-full  bg-black  w-[19rem] h-[19rem] mt-8 mb-10"></div>
+                <div className="w-[20rem] flex justify-center">
+                  <ListTemplate
+                    title="Awards"
+                    component={<Awards />}
+                    extraClass="max-h-72 overflow-y-scroll"
+                  />
                 </div>
               </div>
             </div>
@@ -70,19 +56,16 @@ const Profile: NextPage = () => {
                   </svg>
                 </div>
               </div>
-
-              <div className="mt-24">
-                <div className="shadow-md bg-white mb-1 rounded-t-xl w-11/12 border">
-                  <p className="text-xl py-1 ml-2">Submissions</p>
-                </div>
-                <Submissions />
+              <div className="mt-20">
+                <ListTemplate title="Submission" component={<Streak />} />
               </div>
 
-              <div className="mt-10">
-                <div className="shadow-md bg-white mb-1 rounded-t-xl w-11/12 border">
-                  <p className="text-xl py-1 ml-2">Recents</p>
-                </div>
-                <Recents />
+              <div className="my-10">
+                <ListTemplate
+                  title="Recents"
+                  component={<Recents />}
+                  extraClass=" max-h-[50rem] mb-10 overflow-y-scroll"
+                />
               </div>
             </div>
           </div>

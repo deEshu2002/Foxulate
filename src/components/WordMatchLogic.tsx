@@ -1,34 +1,16 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { toggleFocusScenario } from "./Redux/FocusScenario";
 import WordMapper from "./WordMapper";
-import { FocusContext } from "./Writing";
 
 const WordMatchLogic = () => {
   const paraRef = useRef<HTMLTextAreaElement>(null);
 
-  // logic for focusing the scenario text when textbox is in focus
-
-  const focus = useContext(FocusContext);
-
-  const toggleFocus = () => {
-    focus.setfocusScenario((e) => !e);
-  };
+  const dispatch = useDispatch();
 
   const [Para, setPara] = useState("");
 
   const [wordArr, setwordArr] = useState<string[]>([""]);
-
-  const changeWordArr = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (paraRef.current) {
-      if (
-        e.key === " " ||
-        e.key === "." ||
-        e.key === "," ||
-        e.key === "Backspace"
-      ) {
-        setPara(paraRef.current?.value);
-      }
-    }
-  };
 
   useEffect(() => {
     const tempArr = Para.match(/\w+/g) as RegExpMatchArray;
@@ -79,11 +61,14 @@ const WordMatchLogic = () => {
             rounded-md resize-none bg-transparent w-full outline-none p-2 text-lg placeholder:text-black/30 text-neutral-700"
             rows={12}
             placeholder="hello"
-            onFocus={toggleFocus}
-            onBlur={toggleFocus}
-            onKeyUp={changeWordArr}
+            onFocus={() => {
+              dispatch(toggleFocusScenario());
+            }}
+            onBlur={() => dispatch(toggleFocusScenario())}
             ref={paraRef}
-            // onChange={(e)=>{setPara(e.target.value)}}
+            onChange={(e) => {
+              setPara(e.target.value);
+            }}
           ></textarea>
         </div>
       </div>
