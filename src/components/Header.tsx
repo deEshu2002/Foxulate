@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import { toggleMenu } from "./Redux/ShowMenu";
 import { RootState } from "../components/store";
+import Menu from "./Menu";
 
 const Header = () => {
   const menu = useSelector((state: RootState) => state.menu.menuState);
@@ -13,7 +14,7 @@ const Header = () => {
       <div className="bg-white flex flex-row justify-between ">
         {/** Menu Button */}
         <button
-          className="z-10 w-[1.75rem] h-6 mt-7 ml-10 outline-none relative hover:scale-105 duration-200"
+          className="z-20 w-[1.75rem] h-6 mt-7 ml-10 outline-none relative hover:scale-105 duration-200"
           onClick={() => dispatch(toggleMenu())}
         >
           <div className="block ml-3 mt-6 w-full h-full transform  -translate-x-1/2 -translate-y-1/2">
@@ -114,6 +115,13 @@ const Header = () => {
             />
           </svg>
         </div>
+      </div>
+      <div
+        className={`z-10 bg-neutral-800 absolute inset-0 w-screen h-screen transform transition  ease-in-out duration-500 ${
+          menu ? "translate-x-0" : "-translate-x-full "
+        } shadow-xl `}
+      >
+        <Menu />
       </div>
     </>
   );

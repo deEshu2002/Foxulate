@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface props {
   prop: string[];
@@ -98,8 +98,6 @@ const WordMapper = (prop: props) => {
     }
   };
 
-  const helper: boolean = prop.prop?.length === 0;
-
   useEffect(() => {
     if (prop.prop != null) {
       for (let i = 0; i < words.length; i++) {
@@ -115,7 +113,7 @@ const WordMapper = (prop: props) => {
       }
       console.log(prop.prop);
     }
-  }, [prop.prop, helper, words]);
+  }, [prop.prop, words]);
 
   return (
     <div className="w-full flex flex-row gap-4 justify-around flex-wrap">

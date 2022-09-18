@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import HeaderRest from "../../components/HeaderRest";
 import ListTemplate from "../../components/ListTemplate";
 import Related from "../../components/Related";
 import Scenario from "../../components/Scenario";
 import Submissions from "../../components/PastSubmissions";
+import Header from "../../components/Header";
 
 const Submit: NextPage = () => {
   return (
@@ -17,23 +17,7 @@ const Submit: NextPage = () => {
 
       <main>
         <div className="">
-          <div className=" bg-white fixed ">
-            {/** Menu Button */}
-            <button className=" z-10 mt-2 ml-10 outline-none relative focus:outline-none hover:scale-105 duration-200">
-              <svg
-                width="26"
-                height="21"
-                viewBox="0 0 31 26"
-                fill="#191919"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M31.0001 11.3333H6.69006L15.5117 2.51166L13.1551 0.154999L0.310059 13L13.1551 25.845L15.5117 23.4883L6.69006 14.6667H31.0001V11.3333Z" />
-              </svg>
-            </button>
-          </div>
-
-          <HeaderRest />
-
+          <Header />
           <div className="flex flex-row mx-20">
             <div className="w-2/5">
               <div className="mt-8">
